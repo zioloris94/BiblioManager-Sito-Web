@@ -1,0 +1,60 @@
+<#include "frame-private.html">  
+<div id="page-wrapper" >
+    <div id="page-inner">
+        <div class="row">
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1><strong>Inserimento Opera :</strong></h1>
+                        <br>
+                        <div class="row">
+                            <form  action="InserimentoOpera" method="POST"  role="form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Titolo</label>
+                                        <input  name="titolo" class="form-control" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Autore</label>
+                                        <input  name="autore" class="form-control" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Descrizione</label>
+                                        <textarea name="descrizione" class="form-control" rows="3"></textarea>
+                                    </div>
+                                    <div class="text-center">
+                                        <input class="btn btn-primary" type="submit" name="inserisci" value="inserisci">
+                                    </div>
+                                </div>
+                            </form>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Elements -->
+        </div>
+    </div>
+</div>
+<!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="template/backoffice/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="template/backoffice/assets/js/custom.js"></script>
+
+
+</body>
+</html>

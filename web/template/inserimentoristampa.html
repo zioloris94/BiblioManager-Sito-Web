@@ -1,0 +1,75 @@
+<#include "frame-private.html">  
+<div id="page-wrapper" >
+    <div id="page-inner">
+        <div class="row">
+        </div>
+        <!-- /. ROW  -->
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1><strong>Inserimento Ristampa :</strong></h1>
+                        <br>
+                        <div class="row">
+                            <form  action="InserimentoRistampa" method="POST"  role="form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Editore</label>
+                                        <input  name="editore" class="form-control" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Indice</label>
+                                        <input  name="indice" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uri</label>
+                                        <input  name="uri" class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ISBN</label>
+                                        <input  name="isbn" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Lingua</label>
+                                        <input  name="lingua" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Edizione</label>
+                                        <input type="number" name="edizione" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Numero di Pagine</label>
+                                        <input  type="number" name="npagina" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="text-center">
+                                        <input class="btn btn-primary" type="submit" name="inserisci" value="inserisci">
+                                    </div>
+                                </div>
+                            </form>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Elements -->
+        </div>
+    </div>
+</div>
+<!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="template/backoffice/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="template/backoffice/assets/js/custom.js"></script>
+</body>
+</html>

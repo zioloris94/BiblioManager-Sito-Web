@@ -1,0 +1,82 @@
+<#include "frame-private.html">  
+<div id="page-wrapper" >
+    <div id="page-inner">
+        <div class="row">
+        </div>
+        <!-- /. ROW  -->
+        <hr />
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h1><strong>Modifica Ristampa :</strong></h1>
+                        <br>
+                        <div class="row">
+                            <form  action="ModificaRistampa" method="POST"  role="form">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Editore</label>
+                                        <input  name="editore" value="${editore}" class="form-control" required="required" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Indice</label>
+                                        <input  name="indice" value="${indice}" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uri</label>
+                                        <input  name="uri" value="${uri}" class="form-control"  />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>ISBN</label>
+                                        <input  name="isbn" value="${isbn}" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Lingua</label>
+                                        <input  name="lingua" value="${lingua}" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Edizione</label>
+                                        <input type="number" name="edizione" value="${edizione}" class="form-control" required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Numero di Pagine</label>
+                                        <input  type="number" name="npagina" value="${numeroPagina}" class="form-control" required="required"/>
+                                    </div>
+                                    <input  type="hidden" name="id_pubblicazioni" value="${id_pubblicazioni}" class="form-control" required="required"/>
+                                    <input  type="hidden" name="consigliato" value="${consigliato}" class="form-control" required="required"/>
+                                    <input  type="hidden" name="inserita" value="${inserita}" class="form-control" required="required"/>
+                                    <input  type="hidden" name="path" value="${path}" class="form-control" required="required"/>
+                                    <div class="text-center">
+                                        <input class="btn btn-primary" type="submit" name="modifica" value="modifica"/>
+                                        <input class="btn btn-primary" type="submit" name="inserisci" value="inserisci immagine Copertina"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Form Elements -->
+        </div>
+    </div>
+</div>
+<!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="template/backoffice/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="template/backoffice/assets/js/custom.js"></script>
+
+
+</body>
+</html>

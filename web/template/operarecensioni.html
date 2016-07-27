@@ -1,0 +1,90 @@
+<#include "frame_public.html">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="title text-center">recensioni approvate di "${titolo}"</h2>
+
+                <#if recensioni ??>
+                <#list recensioni as Recensione>
+                <div class="response-area">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img id="imgus" class="media-object" src="template/images/blog/user.png" alt="">
+                            </a>
+                            <div class="media-body">
+                                <ul class="sinlge-post-meta">
+                                    <li><i class="fa fa-user"></i>${Recensione.utente}</li>
+                                    <div class="text-right">
+                                        <h6>Approvata da: ${Recensione.utapprovante}</h6>
+                                    </div>
+                                </ul>
+                                <h4><strong>${Recensione.titolo}</strong></h4>
+                                <h5>${Recensione.testo}</h5>
+                            </div>
+
+                            <#if group == 1>
+                            <div class="text-right">
+                                <form method="post" action="operasingle">
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="elimina" value="elimina"/>
+                                </form>
+                            </div>
+                            </#if>
+                            
+                        </li>
+                    </ul>
+                </div>
+                </#list>
+                </#if>
+                <#if (controllo == 1) ??>
+                <h2 class="title text-center">recensioni non approvate</h2>
+                <#else>
+                <div class="col-md-12">
+                    Non ci sono recensioni da approvare
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                </#if>
+
+                <#if group == 1>
+                <#if recensionidaapprovare ??>
+                <#list recensionidaapprovare as Recensione>
+                <div class="response-area">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img id="imgus" class="media-object" src="template/images/blog/user.png" alt="">
+                            </a>
+                            <div class="media-body">
+                                <ul class="sinlge-post-meta">
+                                    <li><i class="fa fa-user"></i>${Recensione.utente}</li>
+                                </ul>
+                                <h4><strong>${Recensione.titolo}</strong></h4>
+                                <h5>${Recensione.testo}</h5>
+                            </div>
+                            <div class="text-right">
+                                <form method="post" action="operasingle">
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="pubblica" value="pubblica"/>
+
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="elimina" value="elimina"/>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>					
+                </div>
+                </#list>
+                </#if>
+                </#if>
+
+                <a href="operasingle?id=${id}" class="btn btn-default add-to-cart">Torna all'opera</a>
+            </div>	
+        </div>
+    </div>
+</section>
+
+<#include "footer.html">

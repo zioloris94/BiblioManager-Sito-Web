@@ -1,0 +1,83 @@
+<#include "frame-private.html">  
+<div id="page-wrapper" >
+    <div id="page-inner">
+        <!-- /. ROW  -->
+        <hr/>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <h1>&nbsp &nbsp<strong>Lista Utenti:</strong></h1>
+                            <div class="col-md-6">
+                                <br/>
+                                
+                                <#if ricerca ??>
+                                <#list ricerca as Utente>
+                                <div class="col-md-12">
+                                    <form method="POST" action="Promuovere">
+                                        <Strong>${Utente.nome} ${Utente.cognome}</Strong>
+                                        <input type="hidden" name="email" value="${Utente.email}"/><br/>
+                                        <input class="btn btn-default" type="submit" name="attivo" value="Attivo"></input>
+                                        <input class="btn btn-default" type="submit" name="passivo" value="Passivo"></input>
+                                        <input class="btn btn-default" type="submit" name="elimina" value="Elimina"></input><br/><br/>
+                                    </form>
+                                </div>
+                                </#list>
+                                <#else>
+                                <#if utenti ??>
+                                <#list utenti as Utente>
+                                <div class="col-md-12">
+                                    <form method="POST" action="Promuovere" >
+                                        <Strong>${Utente.nome} ${Utente.cognome}</Strong>
+                                        <input type="hidden" name="email" value="${Utente.email}"/><br/>
+                                        <input class="btn btn-default" type="submit" name="attivo" value="Attivo"/>
+                                        <input class="btn btn-default" type="submit" name="passivo" value="Passivo"/>
+                                        <input class="btn btn-default" type="submit" name="elimina" value="Elimina"/>
+                                        <br/><br/>
+                                    </form>
+                                </div>
+                                </#list>
+                                </#if>
+                                </#if>
+                                
+                                <br/>
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Cerca Utente :</h3>
+                                <form method="POST" action="Promuovere" >
+                                    <div class="form-group input-group">
+                                        <input class="form-control" type="text" name="LSearchBO" placeholder="Inserisci Nome o Cognome"/>
+                                        <span class="input-group-btn">
+                                            <input class="btn btn-default" type="submit" name="cerca" value="cerca"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <br/>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form Elements -->
+            </div>
+        </div>
+    </div>
+    <!-- /. PAGE INNER  -->
+</div>
+<!-- /. PAGE WRAPPER  -->
+</div>
+<!-- /. WRAPPER  -->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- JQUERY SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery-1.10.2.js"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+<script src="template/backoffice/assets/js/bootstrap.min.js"></script>
+<!-- METISMENU SCRIPTS -->
+<script src="template/backoffice/assets/js/jquery.metisMenu.js"></script>
+<!-- CUSTOM SCRIPTS -->
+<script src="template/backoffice/assets/js/custom.js"></script>
+
+
+</body>
+</html>

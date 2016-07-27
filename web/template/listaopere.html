@@ -1,0 +1,118 @@
+<#include "frame-private.html">  
+            <div id="page-wrapper" >
+                <div id="page-inner">
+                    <!-- /. ROW  -->
+                    <hr/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Form Elements -->
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <h1>&nbsp &nbsp<strong>Lista Pubblicazioni:</strong></h1>
+                                        <div class="col-md-6">
+                                            <br/>
+                                            <#if search ??>
+                                            <#list search as Libro>
+                                            <div class="col-md-12">
+                                                <form action="ListaOpere" method="POST">
+                                                    <strong>${Libro.titolo}</strong>
+                                                        <br/>
+                                                    <a href="ModificaOpera?id=${Libro.identificatore}" class="btn btn-default add-to-cart">modifica</a>
+                                                    <a href="InserimentoRistampa?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Aggiungi Ristampa</a>
+                                                    <input type="hidden" name="id" value="${Libro.identificatore}"/>
+                                                    <input class="btn btn-primary" type="submit" name="elimina" value="elimina"/><br/><br/>
+                                                </form>
+                                            </div>
+                                            </#list>
+                                            <#else>
+                                            <#if opere ??>
+                                            <#list opere as Libro>
+                                            <div class="col-md-12">
+                                                <form action="ListaOpere" method="POST">
+                                                    <strong>${Libro.titolo}</strong> - ${Libro.autore}<br/>
+                                                    <a href="ModificaOpera?id=${Libro.identificatore}" class="btn btn-default add-to-cart">modifica</a>
+                                                    <a href="InserimentoRistampa?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Aggiungi Ristampa</a>
+                                                    <input type="hidden" name="id" value="${Libro.identificatore}"/>
+                                                    <input class="btn btn-primary" type="submit" name="elimina" value="elimina"/><br/><br/>
+                                                </form>
+                                            </div>
+                                            </#list>
+                                            </#if>
+                                            </#if>
+                                            
+                                            <br/><br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                            
+                                            <h1>&nbsp <strong>Lista ristampe:</strong></h1>
+
+
+                                            <#if ristampe ??>
+                                            <#list ristampe as Libro>
+                                            <div class="col-md-12">
+                                                <form action="ListaOpere" method="POST">
+                                                    <strong>${Libro.titolo}</strong> - ${Libro.editore} - Edizione n°${Libro.edizione}<br/>
+                                                    <a href="ModificaRistampa?id=${Libro.identificatore}" class="btn btn-default add-to-cart">modifica</a>
+                                                    <input type="hidden" name="id" value="${Libro.identificatore}"/>
+                                                    <input class="btn btn-primary" type="submit" name="eliminaR" value="elimina"/>
+                                                </form>
+                                                <br/>
+                                            </div>
+                                            </#list>
+                                            <#else>
+                                            <#if rista ??>
+                                            <#list rista as Libro>
+                                            <div class="col-md-12">
+                                                <form action="ListaOpere" method="POST">
+                                                    <strong>${Libro.titolo}</strong> - ${Libro.editore} - Edizione n°${Libro.edizione}<br/>
+                                                    <a href="ModificaRistampa?id=${Libro.identificatore}" class="btn btn-default add-to-cart">modifica</a>
+                                                    <input type="hidden" name="id" value="${Libro.identificatore}"/>
+                                                    <input class="btn btn-primary" type="submit" name="eliminaR" value="elimina"/>
+                                                </form>
+                                                <br/>
+                                            </div>
+                                            </#list>
+                                            </#if>
+                                            </#if>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Cerca Opera :</h3>
+                                            <form method="POST" action="ListaOpere" >
+                                                <div class="form-group input-group">
+                                                    <input class="form-control" type="text" name="LSearch" placeholder="Cerca .."/>
+                                                    <span class="input-group-btn">
+                                                        <input class="btn btn-default" type="submit" name="cerca" value="cerca"></input>
+                                                    </span>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <br/>
+                                        <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form Elements -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="template/backoffice/assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="template/backoffice/assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="template/backoffice/assets/js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="template/backoffice/assets/js/custom.js"></script>
+    </body>
+</html>
+

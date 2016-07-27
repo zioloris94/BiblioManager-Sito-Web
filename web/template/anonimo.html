@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>BiblioManager</title>
+
+        <link href="template/css/bootstrap.min.css" rel="stylesheet">
+        <link href="template/css/font-awesome.min.css" rel="stylesheet">
+        <link href="template/css/prettyPhoto.css" rel="stylesheet">
+        <link href="template/css/price-range.css" rel="stylesheet">
+        <link href="template/css/animate.css" rel="stylesheet">
+        <link href="template/css/main.css" rel="stylesheet">
+        <link href="template/css/responsive.css" rel="stylesheet">
+
+
+        <!--[if lt IE 9]>
+    <script src="template/js/html5shiv.js"></script>
+    <script src="template/js/respond.min.js"></script>
+    <![endif]-->  
+
+
+        <link rel="shortcut icon" href="images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="template/images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="template/images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="template/images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="template/images/ico/apple-touch-icon-57-precomposed.png">
+    </head><!--/head-->
+
+    <body>
+        <header id="header">
+            <div class="header-middle">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <div class="logo pull-left">
+                                    <a href="index"><img src="template/images/home/logo.jpg" alt="" /></a>
+                                </div>
+                            </div>
+                            <div id="navmenu" class="col-sm-8">
+                                <div class="shop-menu pull-right">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="login"><i class="fa fa-key"></i> Login</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="mainmenu pull-left">
+                                <ul class="nav navbar-nav collapse navbar-collapse">
+                                    <li><a href="index" class="active">Home</a></li>
+                                    <li><a href="operamultiple">Catalogo</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="search_box pull-right">
+                                <form  method="post" action="Search" >
+                                    <input name="LSearch" type="text" placeholder="Cerca"/>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/header-bottom-->
+        </header><!--/header-->
+
+        <section id="slider"><!--slider-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <img src="template/images/home/home.jpg" class="girl img-responsive" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section><!--/slider-->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="category-tab"><!--category-tab-->
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tshirt" data-toggle="tab">Pubblicazioni recenti</a></li>
+                                <li><a href="#blazers" data-toggle="tab">Utenti più attivi</a></li>
+                                <li><a href="#sunglass" data-toggle="tab">Pubblicazioni aggiornate</a></li>
+                                <li><a href="#consigliate" data-toggle="tab">Consigliate</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade active in" id="tshirt" >
+
+                                <#if libri ??>
+                                <#list libri as Libro>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img id="imgmult" src="${Libro.path}" alt="" />
+                                                <h2>${Libro.titolo}</h2>
+                                                <p>${Libro.editore}</p>
+                                                <p>${Libro.edizione}° edizione</p>
+                                                <a href="operasingle?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Leggi</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                </#if>
+                            </div>
+
+                            <div class="tab-pane fade" id="blazers" >
+                                <#if utenti ??>
+                                <#list utenti as Utente>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img src="template/images/home/gallery1.jpg" alt="" />
+                                                <h2>${Utente.nome} ${Utente.cognome}</h2>
+
+                                                <a href="paginapersonale?username=${Utente.email}" class="btn btn-default add-to-cart">Leggi</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                </#if>
+                            </div>
+
+                            <div class="tab-pane fade" id="sunglass" >
+                                <#if libridata ??>
+                                <#list libridata as Libro>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img id="imgmult" src="${Libro.path}" alt="" />
+                                                <h2>${Libro.titolo}</h2>
+                                                <p>${Libro.editore}</p>
+                                                <p>${Libro.edizione}° edizione</p>
+                                                <a href="operasingle?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Leggi</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                </#if>
+                            </div>
+
+                            <div class="tab-pane fade" id="consigliate" >
+                                <#if consigliati ??>
+                                <#list consigliati as Libro>
+                                <div class="col-sm-3">
+                                    <div class="product-image-wrapper">
+                                        <div class="single-products">
+                                            <div class="productinfo text-center">
+                                                <img id="imgmult" src="${Libro.path}" alt="" />
+                                                <h2>${Libro.titolo}</h2>
+                                                <p>${Libro.editore}</p>
+                                                <p>${Libro.edizione}° edizione</p>
+                                                <a href="operasingle?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Leggi</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </#list>
+                                </#if>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <#include "footer.html">

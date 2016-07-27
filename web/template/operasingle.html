@@ -1,0 +1,179 @@
+<#include "frame_public.html">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="blog-post-area">
+                    <h2 class="title text-center">${titolo}</h2>
+                    <div  class="col-sm-6">
+                        <div class="single-blog-post">
+                            <#if group == 1>
+                            <div class="post-meta">
+                                <ul>
+                                    <li><i class="fa fa-calendar"></i> ${data}</li>
+                                </ul>
+                            </div>
+                            </#if>
+                        </div>
+                        <div>
+                            <img id="imgsingle" src="${path}" alt="">
+                        </div>
+                        <br/>
+                        <form method="post" action="operasingle">
+                            <h3>Consigliato da ${consigliato} persone</h3>
+                            <br/>
+                            <#if button == 1>
+                            <h6>Hai già consigliato la lettura di questo libro .. </h6>
+                            <#else>
+                            <input class="btn btn-primary pull-left" type="submit" name="consiglia" value="Consiglia"/>
+                            </#if>
+                        </form>
+                    </div>
+                    <div class="col-sm-6 pull-right">
+                        <div class="media-body">
+                            <h3><strong>Dettagli Prodotto:</strong></h3><br/>
+                            <h4><strong>Autore:</strong> ${autore}<br/><br/>
+                                <strong>Editore:</strong> ${editore}<br/><br/>
+                                <strong>Lingua:</strong> ${lingua} <br/><br/>
+                                <strong>Pagine:</strong> ${npagina} <br/><br/>
+                                <strong>Edizione:</strong> ${edizione} <br/><br/>
+                                <strong>ISBN:</strong> ${isbn} <br/><br/><br/>
+
+                                <#if group == 1>
+                                <a href="ModificaRistampa?id=${id}" class="btn btn-primary">MODIFICA</a>
+                                </#if>
+                                <br/><br/><br/>
+                                <a href="${uri}"><strong>Acquista ora</strong></a><br/></h4><br/><br/>
+                        </div>
+                    </div>
+                </div><!--/blog-post-area-->
+                <div class="col-sm-12">
+                    <h3><strong>Descrizione:</strong></h3>
+                    <p>
+                        ${descrizione}<br/><br/>
+                    </p>
+                    <#if group == 1>
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="text-left">
+                                <strong>Inserita da:</strong>${inserita}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-right">
+                                <strong>Modificata da:</strong> ${modificata}
+                            </div>
+                        </div>
+                    </div>
+                    </#if>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <h2 class="title text-center">recensioni</h2>
+
+
+                <#if recensioni ??>
+                <#list recensioni as Recensione>
+                <div class="response-area">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img id="imgus" class="media-object" src="template/images/blog/user.png" alt="">
+                            </a>
+                            <div class="media-body">
+                                <ul class="sinlge-post-meta">
+                                    <li><i class="fa fa-user"></i>${Recensione.utente}</li>
+                                    <#if group == 1>
+                                    <div class="text-right">
+                                        <h6>Approvata da: ${Recensione.utapprovante}</h6>
+                                    </div>
+                                    </#if>
+                                </ul>
+                                <h4><strong>${Recensione.titolo}</strong></h4>
+                                <h5>${Recensione.testo}</h5>
+                            </div>
+
+                            <#if group == 1>
+                            <div class="text-right">
+                                <form method="post" action="operasingle">
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="elimina" value="elimina"/>
+                                </form>
+                            </div>
+                            </#if>
+                            
+                        </li>
+                    </ul>
+                </div>
+                </#list>
+                </#if>
+
+                <#if group == 1>
+                <#if (controllo == 1) ??>
+                <h2 class="title text-center">recensioni non approvate</h2>
+                <#else>
+                <div class="col-md-12">
+                    Non ci sono recensioni da approvare
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                </#if>
+                </#if>
+
+
+                <#if group == 1>
+                <#if recensionidaapprovare ??>
+                <#list recensionidaapprovare as Recensione>
+                <div class="response-area">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <img id="imgus" class="media-object" src="template/images/blog/user.png" alt="">
+                            </a>
+                            <div class="media-body">
+                                <ul class="sinlge-post-meta">
+                                    <li><i class="fa fa-user"></i>${Recensione.utente}</li>
+                                </ul>
+                                <h4><strong>${Recensione.titolo}</strong></h4>
+                                <h5>${Recensione.testo}</h5>
+                            </div>
+                            <div class="text-right">
+                                <form method="post" action="operasingle">
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="pubblica" value="pubblica"/>
+
+                                    <input type="hidden" name="id" value="${Recensione.id}"/>
+                                    <input class="waves-effect waves-light btn" type="submit" name="elimina" value="elimina"/>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>					
+                </div>
+                </#list>
+                </#if>
+                </#if>
+
+                <a href="operarecensioni?id=${id}&recensioni=${titolo}" class="btn btn-default add-to-cart">Leggi tutte le recensioni</a>
+
+
+                <div class="contact-form">
+                    <h2 class="title text-center">Recensisci</h2>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <div class="alert alert-info alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Nota Bene: Prima di essere mostrata, la recensione deve essere approvata da un moderatore!
+                    </div>
+                    <form action="operasingle" method="post">
+                        <input type="hidden" name="id_lib" value="${id}"/>
+                        <div class="form-group col-md-6"><input name="title" type="text" class="form-control" required="required" placeholder="titolo"/></div>
+                        <div class="form-group col-md-12"><textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Testo .."/></textarea></div>                        
+                        <div class="form-group col-md-12"><input name="submit" type="submit" class="btn btn-primary" value="Invia"/></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<#include "footer.html">

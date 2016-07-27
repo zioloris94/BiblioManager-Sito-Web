@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" 
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        
+        <!-- Home -->
+        <welcome-file> index </welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name> Home </servlet-name>
+        <servlet-class> Servlets.Home </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Home </servlet-name>
+        <url-pattern> /index </url-pattern>
+    </servlet-mapping> 
+    
+
+    <!-- Login -->
+    <servlet>
+        <servlet-name> Login </servlet-name>
+        <servlet-class> Servlets.Login </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Login </servlet-name>
+        <url-pattern> /login </url-pattern>
+    </servlet-mapping>
+    
+   
+    <!-- OperaMultiple -->
+    <servlet>
+        <servlet-name> OperaMultiple </servlet-name>
+        <servlet-class> Servlets.OperaMultiple </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> OperaMultiple </servlet-name>
+        <url-pattern> /operamultiple </url-pattern>
+    </servlet-mapping>
+    
+   
+    <!-- OperaSingle -->
+    <servlet>
+        <servlet-name> OperaSingle </servlet-name>
+        <servlet-class> Servlets.OperaSingle </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> OperaSingle </servlet-name>
+        <url-pattern> /operasingle </url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- PaginaPersonale -->
+    <servlet>
+        <servlet-name> PaginaPersonale </servlet-name>
+        <servlet-class> Servlets.PaginaPersonale </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> PaginaPersonale </servlet-name>
+        <url-pattern> /paginapersonale </url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- Error - 404 -->
+    <servlet>
+        <servlet-name> Error </servlet-name>
+        <servlet-class> Servlets.Error </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Error </servlet-name>
+        <url-pattern> /404 </url-pattern>
+    </servlet-mapping>
+    
+    <!-- Logout -->
+    <servlet>
+        <description></description>
+        <display-name>Logout</display-name>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Servlets.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+   
+    <!-- Backoffice -->
+    <servlet>
+        <servlet-name> Backoffice </servlet-name>
+        <servlet-class> Servlets.Backoffice </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Backoffice </servlet-name>
+        <url-pattern> /homebackoffice </url-pattern>
+    </servlet-mapping>
+    
+    <!-- InserimentoOpera -->
+    <servlet>
+        <servlet-name> InserimentoOpera </servlet-name>
+        <servlet-class> Servlets.InserimentoOpera </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> InserimentoOpera </servlet-name>
+        <url-pattern> /InserimentoOpera </url-pattern>
+    </servlet-mapping>
+    
+    <!-- Promuovere -->
+    <servlet>
+        <servlet-name> Promuovere </servlet-name>
+        <servlet-class> Servlets.Promuovere </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Promuovere </servlet-name>
+        <url-pattern> /Promuovere </url-pattern>
+    </servlet-mapping>
+    
+    <!-- Search -->
+    <servlet>
+        <servlet-name> Search </servlet-name>
+        <servlet-class> Servlets.Search </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Search </servlet-name>
+        <url-pattern> /Search </url-pattern>
+    </servlet-mapping>
+    
+    <!-- Upload -->
+    <servlet>
+        <servlet-name> Upload </servlet-name>
+        <servlet-class> Servlets.Upload </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> Upload </servlet-name>
+        <url-pattern> /Upload </url-pattern>
+    </servlet-mapping>
+    
+    <!-- OperaRecensioni -->
+    <servlet>
+        <servlet-name> OperaRecensioni </servlet-name>
+        <servlet-class> Servlets.OperaRecensioni </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> OperaRecensioni </servlet-name>
+        <url-pattern> /operarecensioni </url-pattern>
+    </servlet-mapping>
+    
+    <!-- ModificaOpera -->
+    <servlet>
+        <servlet-name> ModificaOpera </servlet-name>
+        <servlet-class> Servlets.ModificaOpera </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> ModificaOpera </servlet-name>
+        <url-pattern> /ModificaOpera </url-pattern>
+    </servlet-mapping>
+    
+    <!-- ListaOpere -->
+    <servlet>
+        <servlet-name> ListaOpere </servlet-name>
+        <servlet-class> Servlets.ListaOpere </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> ListaOpere </servlet-name>
+        <url-pattern> /ListaOpere </url-pattern>
+    </servlet-mapping>
+    
+    <!-- InserimentoRistampa -->
+    <servlet>
+        <servlet-name> InserimentoRistampa </servlet-name>
+        <servlet-class> Servlets.InserimentoRistampa </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> InserimentoRistampa </servlet-name>
+        <url-pattern> /InserimentoRistampa </url-pattern>
+    </servlet-mapping>
+    
+    <!-- ModificaRistampa -->
+    <servlet>
+        <servlet-name> ModificaRistampa </servlet-name>
+        <servlet-class> Servlets.ModificaRistampa </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> ModificaRistampa </servlet-name>
+        <url-pattern> /ModificaRistampa </url-pattern>
+    </servlet-mapping>
+    
+    <!-- UploadGalleria -->
+    <servlet>
+        <servlet-name> UploadGalleria </servlet-name>
+        <servlet-class> Servlets.UploadGalleria </servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name> UploadGalleria </servlet-name>
+        <url-pattern> /UploadGalleria </url-pattern>
+    </servlet-mapping>
+    
+</web-app>

@@ -1,0 +1,87 @@
+<#include "frame_public.html">
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10">
+                <form method="post" action="operamultiple">
+                    <h4>Ordina per: &nbsp
+                        <input class="waves-effect waves-light btn" type="submit" name="data" value="data">
+                        <input class="waves-effect waves-light btn" type="submit" name="nome" value="titolo">
+                        <input class="waves-effect waves-light btn" type="submit" name="autore" value="autore">
+                        <input class="waves-effect waves-light btn" type="submit" name="editore" value="editore">
+                        <input class="waves-effect waves-light btn" type="submit" name="consigliato" value="consigliato">
+                        <input class="waves-effect waves-light btn" type="submit" name="numeropagine" value="numero pagine">
+                    </h4>
+                </form>
+                <br/>
+            </div>
+            <div class="col-sm-2 text-right">
+                <#if group == 1>
+                <a href="InserimentoOpera" class="btn btn-default add-to-cart">Inserisci Opera</a>
+                </#if>
+            </div>
+            <div class="col-sm-12 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Opere Pubblicate</h2>
+
+                    <#if libri ??>
+                    <#list libri as Libro>
+                    <div class="col-sm-3">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img id="imgmult" src="${Libro.path}" alt="" />
+                                    <h2>${Libro.titolo}</h2>
+                                    <h5>${Libro.editore}</h5>
+                                    <p>${Libro.edizione}° edizione</p>
+                                    <a href="operasingle?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Leggi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </#list>
+                    </#if>
+
+
+                    <#if search ??>
+                    <#list search as Libro>
+                    <div class="col-sm-3">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img id="imgmult" src="${Libro.path}" alt="" />
+                                    <h2>${Libro.titolo}</h2>
+                                    <h5>${Libro.editore}</h5>
+                                    <p>${Libro.edizione}° edizione</p>
+                                    <a href="operasingle?id=${Libro.identificatore}" class="btn btn-default add-to-cart">Leggi</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </#list>
+                    </#if>
+                </div>
+
+
+
+                <#if (start==0)>
+                <#else>
+                <form method="post" action="operamultiple">
+                    <input class="waves-effect waves-light btn" type="submit" name="indietro" value="indietro"/>
+                </form>
+                </#if>
+
+                <#if (start < count) && (count >= start+8)>
+                <form method="post" action="operamultiple">
+                    <input class="waves-effect waves-light btn" type="submit" name="avanti" value="avanti"/>
+                </form>
+                <#else>
+                </#if>
+                <br/>
+                <br/>
+            </div>
+        </div>
+    </div>
+</section>
+
+<#include "footer.html">
